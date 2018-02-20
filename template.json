@@ -2,183 +2,83 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "servers_cabsqlserver_name": {
-            "defaultValue": "cabsqlserver",
+        "virtualMachines_IM_SQL_UAT_vm_name": {
+            "defaultValue": "IM-SQL-UAT-vm",
             "type": "String"
         },
-        "virtualMachines_Server01_name": {
-            "defaultValue": "Server01",
+        "virtualNetworks_IM_Data_UAT_vnet_name": {
+            "defaultValue": "IM-Data-UAT-vnet",
             "type": "String"
         },
-        "virtualNetworks_lab_rg_vnet_name": {
-            "defaultValue": "lab-rg-vnet",
+        "storageAccounts_imdatauatdiag659_name": {
+            "defaultValue": "imdatauatdiag659",
             "type": "String"
         },
-        "networkInterfaces_server0120_name": {
-            "defaultValue": "server0120",
+        "networkInterfaces_im_sql_uat_vm495_name": {
+            "defaultValue": "im-sql-uat-vm495",
             "type": "String"
         },
-        "storageAccounts_cabeustorage_name": {
-            "defaultValue": "cabeustorage",
+        "publicIPAddresses_IM_SQL_UAT_vm_ip_name": {
+            "defaultValue": "IM-SQL-UAT-vm-ip",
             "type": "String"
         },
-        "storageAccounts_labrgdiag204_name": {
-            "defaultValue": "labrgdiag204",
+        "networkSecurityGroups_IM_SQL_UAT_vm_nsg_name": {
+            "defaultValue": "IM-SQL-UAT-vm-nsg",
             "type": "String"
         },
-        "publicIPAddresses_Server01_ip_name": {
-            "defaultValue": "Server01-ip",
+        "schedules_shutdown_computevm_im_sql_uat_vm_name": {
+            "defaultValue": "shutdown-computevm-im-sql-uat-vm",
             "type": "String"
         },
-        "databases_master_name": {
-            "defaultValue": "master",
-            "type": "String"
-        },
-        "networkSecurityGroups_Server01_nsg_name": {
-            "defaultValue": "Server01-nsg",
-            "type": "String"
-        },
-        "keys_ServiceManaged_name": {
-            "defaultValue": "ServiceManaged",
-            "type": "String"
-        },
-        "databases_cabseasqldb_name": {
-            "defaultValue": "cabseasqldb",
-            "type": "String"
-        },
-        "schedules_shutdown_computevm_server01_name": {
-            "defaultValue": "shutdown-computevm-server01",
-            "type": "String"
-        },
-        "auditingPolicies_Default_name": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "subnets_default_name": {
-            "defaultValue": "default",
-            "type": "String"
-        },
-        "encryptionProtector_current_name": {
-            "defaultValue": "current",
-            "type": "String"
-        },
-        "firewallRules_AllowAllWindowsAzureIps_name": {
-            "defaultValue": "AllowAllWindowsAzureIps",
-            "type": "String"
-        },
-        "advisors_DropIndex_name": {
-            "defaultValue": "DropIndex",
-            "type": "String"
-        },
-        "auditingPolicies_Default_name_1": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "advisors_CreateIndex_name": {
-            "defaultValue": "CreateIndex",
-            "type": "String"
-        },
-        "geoBackupPolicies_Default_name": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "backupLongTermRetentionVaults_RegisteredVault_name": {
-            "defaultValue": "RegisteredVault",
-            "type": "String"
-        },
-        "auditingPolicies_Default_name_2": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "geoBackupPolicies_Default_name_1": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "firewallRules_ClientIPAddress_2018_2_20_12_14_39_name": {
-            "defaultValue": "ClientIPAddress_2018-2-20_12-14-39",
-            "type": "String"
-        },
-        "advisors_ForceLastGoodPlan_name": {
-            "defaultValue": "ForceLastGoodPlan",
+        "subnets_IM_UAT_Vnet_BE_name": {
+            "defaultValue": "IM-UAT-Vnet-BE",
             "type": "String"
         },
         "securityRules_default_allow_rdp_name": {
             "defaultValue": "default-allow-rdp",
             "type": "String"
         },
-        "advisors_DbParameterization_name": {
-            "defaultValue": "DbParameterization",
-            "type": "String"
-        },
-        "transparentDataEncryption_current_name": {
-            "defaultValue": "current",
-            "type": "String"
-        },
-        "transparentDataEncryption_current_name_1": {
-            "defaultValue": "current",
-            "type": "String"
-        },
-        "backupLongTermRetentionPolicies_Default_name": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "backupLongTermRetentionPolicies_Default_name_1": {
-            "defaultValue": "Default",
-            "type": "String"
-        },
-        "virtualMachines_Server01_id": {
-            "defaultValue": "/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Compute/disks/Server01_OsDisk_1_652c22551b4d49f9800a71396ba41635",
-            "type": "String"
-        },
-        "virtualMachines_Server01_id_1": {
-            "defaultValue": "/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/LAB-RG/providers/Microsoft.Compute/disks/server01_drive_d",
+        "virtualMachines_IM_SQL_UAT_vm_id": {
+            "defaultValue": "/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Compute/disks/IM-SQL-UAT-vm_OsDisk_1_19e82c16b17e4402be17d62aaf52ac21",
             "type": "String"
         }
     },
     "variables": {},
     "resources": [
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Compute/virtualMachines/Server01'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Compute/virtualMachines/IM-SQL-UAT-vm'.",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('virtualMachines_Server01_name')]",
+            "name": "[parameters('virtualMachines_IM_SQL_UAT_vm_name')]",
             "apiVersion": "2017-03-30",
             "location": "southeastasia",
             "scale": null,
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_DS1_v2"
+                    "vmSize": "Standard_DS12_v2"
                 },
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "2016-Datacenter",
+                        "sku": "2012-R2-Datacenter",
                         "version": "latest"
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "[concat(parameters('virtualMachines_Server01_name'),'_OsDisk_1_652c22551b4d49f9800a71396ba41635')]",
+                        "name": "[concat(parameters('virtualMachines_IM_SQL_UAT_vm_name'),'_OsDisk_1_19e82c16b17e4402be17d62aaf52ac21')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "id": "[parameters('virtualMachines_Server01_id')]"
-                        }
+                            "storageAccountType": "Standard_LRS",
+                            "id": "[parameters('virtualMachines_IM_SQL_UAT_vm_id')]"
+                        },
+                        "diskSizeGB": 128
                     },
-                    "dataDisks": [
-                        {
-                            "lun": 0,
-                            "name": "[concat(parameters('virtualMachines_Server01_name'),'server01_drive_d')]",
-                            "createOption": "Attach",
-                            "caching": "None",
-                            "managedDisk": {
-                                "id": "[parameters('virtualMachines_Server01_id_1')]"
-                            }
-                        }
-                    ]
+                    "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_Server01_name')]",
-                    "adminUsername": "mark.cabaguio",
+                    "computerName": "[parameters('virtualMachines_IM_SQL_UAT_vm_name')]",
+                    "adminUsername": "ch-im-admin",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
@@ -188,26 +88,27 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server0120_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_im_sql_uat_vm495_name'))]"
                         }
                     ]
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_labrgdiag204_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_imdatauatdiag659_name'), '.blob.core.windows.net', '/')]"
                     }
-                }
+                },
+                "licenseType": "Windows_Server"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server0120_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_labrgdiag204_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_im_sql_uat_vm495_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_imdatauatdiag659_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourcegroups/lab-rg/providers/microsoft.devtestlab/schedules/shutdown-computevm-server01'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourcegroups/im-data-uat/providers/microsoft.devtestlab/schedules/shutdown-computevm-im-sql-uat-vm'.",
             "type": "microsoft.devtestlab/schedules",
-            "name": "[parameters('schedules_shutdown_computevm_server01_name')]",
+            "name": "[parameters('schedules_shutdown_computevm_im_sql_uat_vm_name')]",
             "apiVersion": "2016-05-15",
             "location": "southeastasia",
             "scale": null,
@@ -217,42 +118,42 @@
                 "dailyRecurrence": {
                     "time": "1900"
                 },
-                "timeZoneId": "UTC",
+                "timeZoneId": "AUS Eastern Standard Time",
                 "notificationSettings": {
                     "status": "Disabled",
                     "timeInMinutes": 30
                 },
-                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_Server01_name'))]",
+                "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_IM_SQL_UAT_vm_name'))]",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "d4d01888-4e64-434a-ac42-d8ffd352c334"
+                "uniqueIdentifier": "d7676c44-4561-42fc-9f21-abff0e50f857"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_Server01_name'))]"
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_IM_SQL_UAT_vm_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/networkInterfaces/server0120'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/networkInterfaces/im-sql-uat-vm495'.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_server0120_name')]",
+            "name": "[parameters('networkInterfaces_im_sql_uat_vm495_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "cb61dad3-59e8-469d-9353-c33141f551e2",
+                "resourceGuid": "7d597ae5-a4b1-4083-9d3f-37704342fef6",
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"796686f6-ac93-4d09-9477-8355ea8ceec5\"",
+                        "etag": "W/\"9e048405-205e-49b4-b4a4-8b4f81e93059\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAddress": "10.0.1.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Server01_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_IM_SQL_UAT_vm_ip_name'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_lab_rg_vnet_name'), parameters('subnets_default_name'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_IM_Data_UAT_vnet_name'), parameters('subnets_IM_UAT_Vnet_BE_name'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -261,39 +162,41 @@
                 ],
                 "dnsSettings": {
                     "dnsServers": [],
-                    "appliedDnsServers": []
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "4mcsarfsgddeppkwamjfeuwdfh.ix.internal.cloudapp.net"
                 },
+                "macAddress": "00-0D-3A-A1-89-F9",
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server01_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_IM_SQL_UAT_vm_nsg_name'))]"
                 },
                 "primary": true,
                 "virtualMachine": {
-                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_Server01_name'))]"
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_IM_SQL_UAT_vm_name'))]"
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Server01_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_lab_rg_vnet_name'), parameters('subnets_default_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server01_nsg_name'))]",
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_Server01_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_IM_SQL_UAT_vm_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_IM_Data_UAT_vnet_name'), parameters('subnets_IM_UAT_Vnet_BE_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_IM_SQL_UAT_vm_nsg_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_IM_SQL_UAT_vm_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/networkSecurityGroups/Server01-nsg'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/networkSecurityGroups/IM-SQL-UAT-vm-nsg'.",
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('networkSecurityGroups_Server01_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_IM_SQL_UAT_vm_nsg_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "26c95ee4-c6f1-4a38-bb8e-f48b0dad6cf0",
+                "resourceGuid": "c1acbf40-6687-4232-b690-f6c89c6e545d",
                 "securityRules": [
                     {
                         "name": "default-allow-rdp",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "TCP",
@@ -314,7 +217,7 @@
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -334,7 +237,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -354,7 +257,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -374,7 +277,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -394,7 +297,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -414,7 +317,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"7ef884ca-b46e-4635-be69-cf9ca3265f06\"",
+                        "etag": "W/\"b04e36f5-a42c-4c81-9670-14f58bd2e803\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -437,18 +340,19 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/publicIPAddresses/Server01-ip'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/publicIPAddresses/IM-SQL-UAT-vm-ip'.",
             "type": "Microsoft.Network/publicIPAddresses",
             "sku": {
                 "name": "Basic"
             },
-            "name": "[parameters('publicIPAddresses_Server01_ip_name')]",
+            "name": "[parameters('publicIPAddresses_IM_SQL_UAT_vm_ip_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "c1389485-a54d-4f7d-8c0b-e13fcfdd521c",
+                "resourceGuid": "f607b41c-c98a-4710-b45c-1760faac8069",
+                "ipAddress": "52.187.149.120",
                 "publicIPAddressVersion": "IPv4",
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4
@@ -456,27 +360,27 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/virtualNetworks/lab-rg-vnet'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/virtualNetworks/IM-Data-UAT-vnet'.",
             "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworks_lab_rg_vnet_name')]",
+            "name": "[parameters('virtualNetworks_IM_Data_UAT_vnet_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "b1eea06a-29e7-43c4-8846-38bc2f4ab850",
+                "resourceGuid": "442005f3-30b2-47c6-bd56-03125252c32f",
                 "addressSpace": {
                     "addressPrefixes": [
-                        "10.0.0.0/24"
+                        "10.0.1.0/24"
                     ]
                 },
                 "subnets": [
                     {
-                        "name": "default",
-                        "etag": "W/\"178e4a47-20af-4063-952e-9578f18a9236\"",
+                        "name": "IM-UAT-Vnet-BE",
+                        "etag": "W/\"5cbb4270-56a2-43aa-bce6-9c7ba6a81c9a\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "addressPrefix": "10.0.0.0/24"
+                            "addressPrefix": "10.0.1.0/24"
                         }
                     }
                 ],
@@ -487,63 +391,14 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver'.",
-            "type": "Microsoft.Sql/servers",
-            "kind": "v12.0",
-            "name": "[parameters('servers_cabsqlserver_name')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "southeastasia",
-            "scale": null,
-            "properties": {
-                "administratorLogin": "mecabaguio",
-                "version": "12.0"
-            },
-            "dependsOn": []
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Storage/storageAccounts/cabeustorage'.",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_GRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "name": "[parameters('storageAccounts_cabeustorage_name')]",
-            "apiVersion": "2017-10-01",
-            "location": "eastus",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": false,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "enabled": true
-                        },
-                        "blob": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Storage/storageAccounts/labrgdiag204'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Storage/storageAccounts/imdatauatdiag659'.",
             "type": "Microsoft.Storage/storageAccounts",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
             },
             "kind": "Storage",
-            "name": "[parameters('storageAccounts_labrgdiag204_name')]",
+            "name": "[parameters('storageAccounts_imdatauatdiag659_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "tags": {},
@@ -571,9 +426,9 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/networkSecurityGroups/Server01-nsg/securityRules/default-allow-rdp'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/networkSecurityGroups/IM-SQL-UAT-vm-nsg/securityRules/default-allow-rdp'.",
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "name": "[concat(parameters('networkSecurityGroups_Server01_nsg_name'), '/', parameters('securityRules_default_allow_rdp_name'))]",
+            "name": "[concat(parameters('networkSecurityGroups_IM_SQL_UAT_vm_nsg_name'), '/', parameters('securityRules_default_allow_rdp_name'))]",
             "apiVersion": "2017-10-01",
             "scale": null,
             "properties": {
@@ -592,386 +447,21 @@
                 "destinationAddressPrefixes": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_IM_SQL_UAT_vm_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Network/virtualNetworks/lab-rg-vnet/subnets/default'.",
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Network/virtualNetworks/IM-Data-UAT-vnet/subnets/IM-UAT-Vnet-BE'.",
             "type": "Microsoft.Network/virtualNetworks/subnets",
-            "name": "[concat(parameters('virtualNetworks_lab_rg_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "name": "[concat(parameters('virtualNetworks_IM_Data_UAT_vnet_name'), '/', parameters('subnets_IM_UAT_Vnet_BE_name'))]",
             "apiVersion": "2017-10-01",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "addressPrefix": "10.0.0.0/24"
+                "addressPrefix": "10.0.1.0/24"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_lab_rg_vnet_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/auditingPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/auditingPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('auditingPolicies_Default_name'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "auditingState": "New",
-                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
-                "storageAccountName": null,
-                "storageAccountKey": null,
-                "storageAccountSecondaryKey": null,
-                "storageTableEndpoint": null,
-                "storageAccountResourceGroupName": null,
-                "storageAccountSubscriptionId": null,
-                "fullAuditLogsTableName": "SQLDBAuditLogsCabsqlserver",
-                "auditLogsTableName": "Cabsqlserver",
-                "retentionDays": "0"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/backupLongTermRetentionVaults/RegisteredVault'.",
-            "type": "Microsoft.Sql/servers/backupLongTermRetentionVaults",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('backupLongTermRetentionVaults_RegisteredVault_name'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "recoveryServicesVaultResourceId": null
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb'.",
-            "type": "Microsoft.Sql/servers/databases",
-            "kind": "v12.0,user",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'))]",
-            "apiVersion": "2014-04-01-preview",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "databaseId": "0afebd14-e785-4762-a4ef-ad8ec7c158a0",
-                "edition": "Standard",
-                "status": "Online",
-                "serviceLevelObjective": "S2",
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "maxSizeBytes": "268435456000",
-                "creationDate": "2018-02-19T05:24:50.95Z",
-                "currentServiceObjectiveId": "455330e1-00cd-488b-b5fa-177c226f28b7",
-                "requestedServiceObjectiveId": "455330e1-00cd-488b-b5fa-177c226f28b7",
-                "requestedServiceObjectiveName": "S2",
-                "sampleName": null,
-                "defaultSecondaryLocation": "East Asia",
-                "earliestRestoreDate": "2018-02-19T05:55:27.23Z",
-                "elasticPoolName": null,
-                "containmentState": 2,
-                "readScale": "Disabled",
-                "failoverGroupId": null,
-                "zoneRedundant": false,
-                "isUpgradeRequested": false
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/master'.",
-            "type": "Microsoft.Sql/servers/databases",
-            "kind": "v12.0,system",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_master_name'))]",
-            "apiVersion": "2014-04-01-preview",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "databaseId": "c658b670-c190-4559-babb-06ecb78b48ee",
-                "edition": "System",
-                "status": "Online",
-                "serviceLevelObjective": "System1",
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "maxSizeBytes": "32212254720",
-                "creationDate": "2018-02-19T05:23:07.58Z",
-                "currentServiceObjectiveId": "c99ac918-dbea-463f-a475-16ec020fdc12",
-                "requestedServiceObjectiveId": "c99ac918-dbea-463f-a475-16ec020fdc12",
-                "requestedServiceObjectiveName": "System1",
-                "sampleName": null,
-                "defaultSecondaryLocation": "East Asia",
-                "earliestRestoreDate": null,
-                "elasticPoolName": null,
-                "containmentState": 2,
-                "readScale": "Disabled",
-                "failoverGroupId": null,
-                "zoneRedundant": false,
-                "isUpgradeRequested": false
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/firewallRules/AllowAllWindowsAzureIps'.",
-            "type": "Microsoft.Sql/servers/firewallRules",
-            "kind": "v12.0",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('firewallRules_AllowAllWindowsAzureIps_name'))]",
-            "apiVersion": "2014-04-01-preview",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "startIpAddress": "0.0.0.0",
-                "endIpAddress": "0.0.0.0"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/firewallRules/ClientIPAddress_2018-2-20_12-14-39'.",
-            "type": "Microsoft.Sql/servers/firewallRules",
-            "kind": "v12.0",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('firewallRules_ClientIPAddress_2018_2_20_12_14_39_name'))]",
-            "apiVersion": "2014-04-01-preview",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "startIpAddress": "14.102.168.26",
-                "endIpAddress": "14.102.168.26"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/encryptionProtector/current'.",
-            "type": "Microsoft.Sql/servers/encryptionProtector",
-            "kind": "servicemanaged",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('encryptionProtector_current_name'))]",
-            "apiVersion": "2015-05-01-preview",
-            "scale": null,
-            "properties": {
-                "serverKeyName": "ServiceManaged",
-                "serverKeyType": "ServiceManaged"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/keys/ServiceManaged'.",
-            "type": "Microsoft.Sql/servers/keys",
-            "kind": "servicemanaged",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('keys_ServiceManaged_name'))]",
-            "apiVersion": "2015-05-01-preview",
-            "scale": null,
-            "properties": {
-                "serverKeyType": "[parameters('keys_ServiceManaged_name')]"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/advisors/CreateIndex'.",
-            "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('advisors_CreateIndex_name'))]",
-            "apiVersion": "2014-04-01",
-            "scale": null,
-            "properties": {
-                "autoExecuteValue": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/advisors/DropIndex'.",
-            "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('advisors_DropIndex_name'))]",
-            "apiVersion": "2014-04-01",
-            "scale": null,
-            "properties": {
-                "autoExecuteValue": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/advisors/DbParameterization'.",
-            "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('advisors_DbParameterization_name'))]",
-            "apiVersion": "2014-04-01",
-            "scale": null,
-            "properties": {
-                "autoExecuteValue": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/advisors/ForceLastGoodPlan'.",
-            "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
-            "apiVersion": "2014-04-01",
-            "scale": null,
-            "properties": {
-                "autoExecuteValue": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/auditingPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "auditingState": "New",
-                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
-                "storageAccountName": null,
-                "storageAccountKey": null,
-                "storageAccountSecondaryKey": null,
-                "storageTableEndpoint": null,
-                "storageAccountResourceGroupName": null,
-                "storageAccountSubscriptionId": null,
-                "useServerDefault": "Enabled",
-                "fullAuditLogsTableName": "SQLDBAuditLogsCabsqlserverCabseasqldb",
-                "auditLogsTableName": "CabsqlserverCabseasqldb",
-                "retentionDays": "0"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/backupLongTermRetentionPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name_1'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "state": "Disabled",
-                "recoveryServicesBackupPolicyResourceId": null
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/geoBackupPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "state": "Enabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabseasqldb/transparentDataEncryption/current'.",
-            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_cabseasqldb_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "status": "Enabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_cabseasqldb_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/master/auditingPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_master_name'), '/', parameters('auditingPolicies_Default_name_1'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "auditingState": "New",
-                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
-                "storageAccountName": null,
-                "storageAccountKey": null,
-                "storageAccountSecondaryKey": null,
-                "storageTableEndpoint": null,
-                "storageAccountResourceGroupName": null,
-                "storageAccountSubscriptionId": null,
-                "useServerDefault": "Enabled",
-                "fullAuditLogsTableName": "SQLDBAuditLogsCabsqlserverMaster",
-                "auditLogsTableName": "CabsqlserverMaster",
-                "retentionDays": "0"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_master_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/master/backupLongTermRetentionPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_master_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "state": "Disabled",
-                "recoveryServicesBackupPolicyResourceId": null
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_master_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/master/geoBackupPolicies/Default'.",
-            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_master_name'), '/', parameters('geoBackupPolicies_Default_name'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "state": "Enabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_master_name'))]"
-            ]
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/lab-rg/providers/Microsoft.Sql/servers/cabsqlserver/databases/master/transparentDataEncryption/current'.",
-            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-            "name": "[concat(parameters('servers_cabsqlserver_name'), '/', parameters('databases_master_name'), '/', parameters('transparentDataEncryption_current_name'))]",
-            "apiVersion": "2014-04-01",
-            "location": "Southeast Asia",
-            "scale": null,
-            "properties": {
-                "status": "Disabled"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver_name'), parameters('databases_master_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_IM_Data_UAT_vnet_name'))]"
             ]
         }
     ]
