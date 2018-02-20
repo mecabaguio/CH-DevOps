@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_IM_SQL_UAT_vm_name": {
+            "defaultValue": "IM-SQL-UAT-vm",
+            "type": "String"
+        },
+        "virtualNetworks_IM_Data_UAT_vnet_name": {
+            "defaultValue": "IM-Data-UAT-vnet",
+            "type": "String"
+        },
+          "storageAccounts_imdatauatdiag659_name": {
+            "defaultValue": "imdatauatdiag659",
+            "type": "String"
+        },
+        "networkInterfaces_im_sql_uat_vm495_name": {
+            "defaultValue": "im-sql-uat-vm495",
+            "type": "String"
+        },
+        "publicIPAddresses_IM_SQL_UAT_vm_ip_name": {
+            "defaultValue": "IM-SQL-UAT-vm-ip",
+            "type": "String"
+        },
+        "networkSecurityGroups_IM_SQL_UAT_vm_nsg_name": {
+            "defaultValue": "IM-SQL-UAT-vm-nsg",
+            "type": "String"
+        },
+        "schedules_shutdown_computevm_im_sql_uat_vm_name": {
+            "defaultValue": "shutdown-computevm-im-sql-uat-vm",
+            "type": "String"
+        },
+        "subnets_IM_UAT_Vnet_BE_name": {
+            "defaultValue": "IM-UAT-Vnet-BE",
+            "type": "String"
+        },
+        "securityRules_default_allow_rdp_name": {
+            "defaultValue": "default-allow-rdp",
+            "type": "String"
+        },
+        "virtualMachines_IM_SQL_UAT_vm_id": {
+            "defaultValue": "/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-UAT/providers/Microsoft.Compute/disks/IM-SQL-UAT-vm_OsDisk_1_19e82c16b17e4402be17d62aaf52ac21",
+            "type": "String"
+        }
+    }
+}
