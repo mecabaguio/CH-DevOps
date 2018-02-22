@@ -7,7 +7,7 @@
             "type": "String"
         },
         "networkInterfaces_cabserver01984_name": {
-            "defaultValue": "cabserver01983",
+            "defaultValue": "cabserver01984",
             "type": "String"
         },
         "publicIPAddresses_CABSERVER02_ip_name": {
@@ -133,7 +133,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Network/networkInterfaces/cabserver01983'.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_cabserver01983_name')]",
+            "name": "[parameters('networkInterfaces_cabserver01984_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
