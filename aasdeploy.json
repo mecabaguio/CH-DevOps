@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_cabaasea_name": {
+            "defaultValue": "cabaasea",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/IM-Data-Prod/providers/Microsoft.AnalysisServices/servers/cabaasea'.",
+            "type": "Microsoft.AnalysisServices/servers",
+            "sku": {
+                "name": "S0",
+                "tier": "Standard"
+            },
+            "name": "[parameters('servers_cabaasea_name')]",
+            "apiVersion": "2016-05-16",
+            "location": "Australia Southeast",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "managedMode": 1
+            },
+            "dependsOn": []
+        }
+    ]
+}
