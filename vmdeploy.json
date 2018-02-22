@@ -30,7 +30,7 @@
             "defaultValue": "shutdown-computevm-cabserver02",
             "type": "String"
         },
-        "subnets_CAB_Prod_RG_snet_name": {
+        "subnets_CAB_UAT_RG_snet_name": {
             "defaultValue": "CAB-UAT-RG-snet",
             "type": "String"
         },
