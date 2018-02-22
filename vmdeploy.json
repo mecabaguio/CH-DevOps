@@ -427,7 +427,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Network/networkSecurityGroups/CABSERVER01-nsg/securityRules/default-allow-rdp'.",
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "name": "[concat(parameters('networkSecurityGroups_CABSERVER01_nsg_name'), '/', parameters('securityRules_default_allow_rdp_name'))]",
+            "name": "[concat(parameters('networkSecurityGroups_CABSERVER02_nsg_name'), '/', parameters('securityRules_default_allow_rdp_name'))]",
             "apiVersion": "2017-10-01",
             "scale": null,
             "properties": {
