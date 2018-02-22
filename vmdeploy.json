@@ -11,7 +11,7 @@
             "type": "String"
         },
         "publicIPAddresses_CABSERVER02_ip_name": {
-            "defaultValue": "CABSERVER01-ip",
+            "defaultValue": "CABSERVER02-ip",
             "type": "String"
         },
         "virtualNetworks_CAB_UAT_RG_vnet_name": {
@@ -48,7 +48,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Compute/virtualMachines/CABSERVER01'.",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('virtualMachines_CABSERVER01_name')]",
+            "name": "[parameters('virtualMachines_CABSERVER02_name')]",
             "apiVersion": "2017-03-30",
             "location": "southeastasia",
             "scale": null,
