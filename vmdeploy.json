@@ -95,19 +95,19 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_cabprodrgdiag716_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_cabuatrgdiag716_name'), '.blob.core.windows.net', '/')]"
                     }
                 }
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cabserver01984_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cabprodrgdiag716_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cabuatrgdiag716_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourcegroups/cab-prod-rg/providers/microsoft.devtestlab/schedules/shutdown-computevm-cabserver01'.",
             "type": "microsoft.devtestlab/schedules",
-            "name": "[parameters('schedules_shutdown_computevm_cabserver01_name')]",
+            "name": "[parameters('schedules_shutdown_computevm_cabserver02_name')]",
             "apiVersion": "2016-05-15",
             "location": "southeastasia",
             "scale": null,
