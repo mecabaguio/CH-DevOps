@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachines_CABSERVER02_name": {
-            "defaultValue": "CABSERVER01",
+            "defaultValue": "CABSERVER02",
             "type": "String"
         },
         "networkInterfaces_cabserver01984_name": {
