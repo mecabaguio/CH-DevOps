@@ -70,7 +70,7 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Standard_LRS",
-                            "id": "[parameters('virtualMachines_CABSERVER02id')]"
+                            "id": "[parameters('virtualMachines_CABSERVER02_id')]"
                         },
                         "diskSizeGB": 128
                     },
