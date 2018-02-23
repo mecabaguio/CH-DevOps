@@ -8,11 +8,7 @@
         },
         "networkInterfaces_cabserver01984_name": {
             "defaultValue": "cabserver01984",
-            "type": "String"
-        },	
-        "networkInterfaces_cabserver01985_name": {
-            "defaultValue": "cabserver01985",
-            "type": "String"
+            "type": "String"        
         },
         "publicIPAddresses_CABSERVER02_ip_name": {
             "defaultValue": "CABSERVER02-ip",
@@ -104,7 +100,7 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cabserver01985_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cabserver01984_name'))]",
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cabuatrgdiag716_name'))]"
             ]
         },
