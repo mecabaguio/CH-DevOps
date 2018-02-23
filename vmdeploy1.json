@@ -38,7 +38,7 @@
             "defaultValue": "default-allow-rdp",
             "type": "String"
         },
-        "virtualMachines_CABSERVER02id": {
+        "virtualMachines_CABSERVER02_id": {
             "defaultValue": "/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-UAT-RG/providers/Microsoft.Compute/disks/CABSERVER02_OsDisk_1_da657cebf82f45ddb957a52c2b6b996d",
             "type": "String"
         }
@@ -70,7 +70,7 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Standard_LRS",
-                            "id": "[parameters('virtualMachines_CABSERVER02id')]"
+                            "id": "[parameters('virtualMachines_CABSERVER02_id')]"
                         },
                         "diskSizeGB": 128
                     },
