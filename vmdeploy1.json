@@ -337,58 +337,7 @@
             },
             "dependsOn": []
         },
-		{
-            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Network/networkInterfaces/cabserver01983'.",
-            "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_cabserver01984_name')]",
-            "apiVersion": "2017-10-01",
-            "location": "southeastasia",
-            "scale": null,
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "92b8866a-0dd2-426c-add8-f18d4f933e7f",
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "etag": "W/\"ec13f4da-2a6a-4818-b27d-cf4e4fe2fd74\"",
-                        "properties": {
-                            "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.0.0.8",
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_CABSERVER02_ip_name'))]"
-                            },
-                            "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_UAT_RG_vnet_name'), parameters('subnets_CAB_UAT_RG_snet_name'))]"
-                            },
-                            "primary": true,
-                            "privateIPAddressVersion": "IPv4"
-                        }
-                    }
-                ],
-                "dnsSettings": {
-                    "dnsServers": [],
-                    "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "fjpxi3bcwhsupkmvglxyqhqi3a.ix.internal.cloudapp.net"
-                },
-                "macAddress": "00-0D-3A-A1-73-A7",
-                "enableAcceleratedNetworking": false,
-                "enableIPForwarding": false,
-                "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_CABSERVER02_nsg_name'))]"
-                },
-                "primary": true,
-                "virtualMachine": {
-                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_CABSERVER02_name'))]"
-                }
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_CABSERVER02_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_UAT_RG_vnet_name'), parameters('subnets_CAB_UAT_RG_snet_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_CABSERVER02_nsg_name'))]",
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_CABSERVER02_name'))]"
-            ]
-        },
+		
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Storage/storageAccounts/cabprodrgdiag715'.",
             "type": "Microsoft.Storage/storageAccounts",
@@ -462,6 +411,58 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_CAB_UAT_RG_vnet_name'))]"
             ]
-        }
+        },
+	{
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Network/networkInterfaces/cabserver01983'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_cabserver01984_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "southeastasia",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "92b8866a-0dd2-426c-add8-f18d4f933e7f",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"ec13f4da-2a6a-4818-b27d-cf4e4fe2fd74\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.8",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_CABSERVER02_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_UAT_RG_vnet_name'), parameters('subnets_CAB_UAT_RG_snet_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "fjpxi3bcwhsupkmvglxyqhqi3a.ix.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-A1-73-A7",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_CABSERVER02_nsg_name'))]"
+                },
+                "primary": true,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_CABSERVER02_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_CABSERVER02_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_UAT_RG_vnet_name'), parameters('subnets_CAB_UAT_RG_snet_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_CABSERVER02_nsg_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_CABSERVER02_name'))]"
+            ]
+        }	
     ]
 }
