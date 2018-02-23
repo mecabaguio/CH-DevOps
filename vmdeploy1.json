@@ -9,6 +9,10 @@
         "networkInterfaces_cabserver01984_name": {
             "defaultValue": "cabserver01984",
             "type": "String"
+        },	
+        "networkInterfaces_cabserver01985_name": {
+            "defaultValue": "cabserver01985",
+            "type": "String"
         },
         "publicIPAddresses_CABSERVER02_ip_name": {
             "defaultValue": "CABSERVER02-ip",
