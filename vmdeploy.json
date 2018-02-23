@@ -100,7 +100,7 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cabserver01984_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cabserver01983_name'))]",
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cabuatrgdiag716_name'))]"
             ]
         },
