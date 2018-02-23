@@ -98,10 +98,7 @@
                         "storageUri": "[concat('https', '://', parameters('storageAccounts_cabuatrgdiag716_name'), '.blob.core.windows.net', '/')]"
                     }
                 }
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cabuatrgdiag716_name'))]"
-            ]
+            },            
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourcegroups/cab-prod-rg/providers/microsoft.devtestlab/schedules/shutdown-computevm-cabserver01'.",
