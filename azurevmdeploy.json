@@ -452,7 +452,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Prod-RG/providers/Microsoft.Network/virtualNetworks/CAB-Prod-RG-vnet/subnets/CAB-Prod-RG-snet'.",
             "type": "Microsoft.Network/virtualNetworks/subnets",
-            "name": "[concat(parameters('virtualNetworks_CAB_Prod_RG_vnet_name'), '/', parameters('subnets_CAB_Uat_RG_snet_name'))]",
+            "name": "[concat(parameters('virtualNetworks_CAB_Uat_RG_vnet_name'), '/', parameters('subnets_CAB_Uat_RG_snet_name'))]",
             "apiVersion": "2017-10-01",
             "scale": null,
             "properties": {
