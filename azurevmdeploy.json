@@ -78,6 +78,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_CABSERVER02_name')]",
                     "adminUsername": "mecabaguio",
+					"adminPassword": "P@ssw0rd_1",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
