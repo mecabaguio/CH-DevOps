@@ -365,7 +365,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/transparentDataEncryption/current'.",
             "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqld02b_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
             "apiVersion": "2014-04-01",
             "location": "Southeast Asia",
             "scale": null,
