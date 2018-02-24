@@ -344,7 +344,7 @@
             "sku": {
                 "name": "Basic"
             },
-            "name": "[parameters('publicIPAddresses_CABSERVER01_ip_name')]",
+            "name": "[parameters('publicIPAddresses_CABSERVER02_ip_name')]",
             "apiVersion": "2017-10-01",
             "location": "southeastasia",
             "scale": null,
