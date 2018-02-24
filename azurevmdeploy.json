@@ -152,7 +152,7 @@
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_CABSERVER02_ip_name'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_Prod_RG_vnet_name'), parameters('subnets_CAB_Uat_RG_snet_name'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_CAB_Uat_RG_vnet_name'), parameters('subnets_CAB_Uat_RG_snet_name'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
