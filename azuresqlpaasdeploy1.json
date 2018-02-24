@@ -10,8 +10,8 @@
             "defaultValue": "master",
             "type": "String"
         },
-        "databases_cabasqldb_name": {
-            "defaultValue": "cabasqldb",
+        "databases_cabasqldb02_name": {
+            "defaultValue": "cabasqldb02",
             "type": "String"
         },
         "keys_ServiceManaged_name": {
@@ -142,7 +142,7 @@
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb'.",
             "type": "Microsoft.Sql/servers/databases",
             "kind": "v12.0,user",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'))]",
             "apiVersion": "2014-04-01-preview",
             "location": "Southeast Asia",
             "scale": null,
@@ -252,7 +252,7 @@
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/advisors/CreateIndex'.",
             "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('advisors_CreateIndex_name'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('advisors_CreateIndex_name'))]",
             "apiVersion": "2014-04-01",
             "scale": null,
             "properties": {
@@ -260,13 +260,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/advisors/DropIndex'.",
             "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('advisors_DropIndex_name'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('advisors_DropIndex_name'))]",
             "apiVersion": "2014-04-01",
             "scale": null,
             "properties": {
@@ -274,13 +274,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/advisors/DbParameterization'.",
             "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('advisors_DbParameterization_name'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('advisors_DbParameterization_name'))]",
             "apiVersion": "2014-04-01",
             "scale": null,
             "properties": {
@@ -288,13 +288,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/advisors/ForceLastGoodPlan'.",
             "type": "Microsoft.Sql/servers/databases/advisors",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
             "apiVersion": "2014-04-01",
             "scale": null,
             "properties": {
@@ -302,13 +302,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/auditingPolicies/Default'.",
             "type": "Microsoft.Sql/servers/databases/auditingPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
             "apiVersion": "2014-04-01",
             "location": "Southeast Asia",
             "scale": null,
@@ -322,19 +322,19 @@
                 "storageAccountResourceGroupName": null,
                 "storageAccountSubscriptionId": null,
                 "useServerDefault": "Enabled",
-                "fullAuditLogsTableName": "SQLDBAuditLogsCabsqlserver02Cabasqldb",
-                "auditLogsTableName": "Cabsqlserver02Cabasqldb",
+                "fullAuditLogsTableName": "SQLDBAuditLogsCabsqlserver02Cabasqldb02",
+                "auditLogsTableName": "Cabsqlserver02Cabasqldb02",
                 "retentionDays": "0"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/backupLongTermRetentionPolicies/Default'.",
             "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name_1'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name_1'))]",
             "apiVersion": "2014-04-01",
             "location": "Southeast Asia",
             "scale": null,
@@ -344,13 +344,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/geoBackupPolicies/Default'.",
             "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb02_name'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
             "apiVersion": "2014-04-01",
             "location": "Southeast Asia",
             "scale": null,
@@ -359,13 +359,13 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.Sql/servers/cabsqlserver/databases/cabasqldb/transparentDataEncryption/current'.",
             "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqldb_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
+            "name": "[concat(parameters('servers_cabsqlserver02_name'), '/', parameters('databases_cabasqld02b_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
             "apiVersion": "2014-04-01",
             "location": "Southeast Asia",
             "scale": null,
@@ -374,7 +374,7 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserver02_name'))]",
-                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb_name'))]"
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserver02_name'), parameters('databases_cabasqldb02_name'))]"
             ]
         },
         {
