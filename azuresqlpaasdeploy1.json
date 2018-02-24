@@ -94,7 +94,8 @@
             "location": "southeastasia",
             "scale": null,
             "properties": {
-                "administratorLogin": "mecabaguio",
+                "adminLogin": "mecabaguio",
+				"adminPassword": "P@ssw0rd",
 				"version": "12.0"
             },
             "dependsOn": []
