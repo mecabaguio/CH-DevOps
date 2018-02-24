@@ -95,7 +95,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_cabuatdrgdiag715_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_cabuatrgdiag715_name'), '.blob.core.windows.net', '/')]"
                     }
                 }
             },
