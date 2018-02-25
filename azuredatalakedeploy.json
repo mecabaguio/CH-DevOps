@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accounts_cabdatalakeuat_name": {
+            "defaultValue": "cabdatalakeuat",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Test-RG/providers/Microsoft.DataLakeStore/accounts/cabdatalaketest'.",
+            "type": "Microsoft.DataLakeStore/accounts",
+            "name": "[parameters('accounts_cabdatalakeuat_name')]",
+            "apiVersion": "2016-11-01",
+            "location": "eastus2",
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        }
+    ]
+}
