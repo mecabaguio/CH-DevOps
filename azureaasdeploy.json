@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_cabassuat_name": {
+            "defaultValue": "cabassuat",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/44b78bb5-e1eb-480a-9c99-cc7579108ac5/resourceGroups/CAB-Dev-RG/providers/Microsoft.AnalysisServices/servers/cabassdev'.",
+            "type": "Microsoft.AnalysisServices/servers",
+            "sku": {
+                "name": "S0",
+                "tier": "Standard"
+            },
+            "name": "[parameters('servers_cabassuat_name')]",
+            "apiVersion": "2016-05-16",
+            "location": "Southeast Asia",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "managedMode": 1
+            },
+            "dependsOn": []
+        }
+    ]
+}
