@@ -1,0 +1,124 @@
+
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "servers_cabsqlserveruat_name": {
+      "type": "string",
+      "defaultValue": "cabsqlserveruat"
+    },
+    "yourservernameAdminLogin": {
+      "type": "string",
+      "defaultValue": "VeryWiseAdmin",
+      "minLength": 1
+    },
+    "yourservernameAdminLoginPassword": {
+      "type": "securestring",
+      "defaultValue": "ReplaceWithTheMostSecurePasswordThatEverExisted&NeverShareLikeThisWithAnyone!"
+    },
+    "cabsqldbuatName": {
+      "type": "string",
+      "defaultValue": "cabsqldbuatName",
+      "minLength": 1
+    },
+    "dbnameCollation": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
+    "dbnameEdition": {
+      "type": "string",
+      "defaultValue": "Basic"
+    },
+    "dbnameRequestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "Basic"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "name": "[parameters('servers_cabsqlserveruat_name')]",
+      "type": "Microsoft.Sql/servers",
+      "location": "West Europe",
+      "apiVersion": "2014-04-01-preview",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "yourservername"
+      },
+      "properties": {
+        "administratorLogin": "[parameters('yourservernameAdminLogin')]",
+        "administratorLoginPassword": "[parameters('yourservernameAdminLoginPassword')]",
+        "version": "12.0"
+      },
+      "resources": [
+        {
+          "name": "[concat(parameters('servers_cabsqlserveruat_name'),'/AllowAllWindowsAzureIps')]",
+          "type": "Microsoft.Sql/servers/firewallRules",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserveruat_name'))]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        },
+        {
+          "name": "[concat(parameters('servers_cabsqlserveruat_name'),'/',parameters('cabsqldbuatName'))]",
+          "type": "Microsoft.Sql/servers/databases",
+          "location": "West Europe",
+          "apiVersion": "2014-04-01-preview",
+          "dependsOn": [
+            "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserveruat_name'))]"
+          ],
+          "tags": {
+            "displayName": "dbname"
+          },
+          "properties": {
+            "collation": "[parameters('dbnameCollation')]",
+            "edition": "[parameters('dbnameEdition')]",
+            "maxSizeBytes": "1073741824",
+            "requestedServiceObjectiveName": "[parameters('dbnameRequestedServiceObjectiveName')]"
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "SomeString": {
+      "type": "string",
+      "value": "What ever you want to put here"
+    },
+    "ServerNameParam": {
+      "type": "string",
+      "value": "[parameters('servers_cabsqlserveruat_name')]"
+    },
+    "ServerResourceID": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Sql/servers', parameters('servers_cabsqlserveruat_name'))]"
+    },
+    "ServerObject": {
+      "type": "object",
+      "value": "[reference(parameters('servers_cabsqlserveruat_name'))]"
+    },
+    "SqlServerURL": {
+      "type": "string",
+      "value": "[reference(parameters('servers_cabsqlserveruat_name')).fullyQualifiedDomainName]"
+    },
+    "DbResourceID": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_cabsqlserveruat_name'), parameters('cabsqldbuatName'))]"
+    },
+    "DbObject": {
+      "type": "object",
+      "value": "[reference(parameters('cabsqldbuatName'))]"
+    },
+    "DbAdoConnString": {
+      "type": "string",
+      "value": "[concat('Server=tcp:',reference(parameters('servers_cabsqlserveruat_name')).fullyQualifiedDomainName,',1433;Initial Catalog=',parameters('cabsqldbuatName'),';Persist Security Info=False;User ID=',reference(parameters('yourservernameName')).administratorLogin,';Password=',reference(parameters('yourservernameName')).administratorLoginPassword,';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+    }
+  }
+
+}
