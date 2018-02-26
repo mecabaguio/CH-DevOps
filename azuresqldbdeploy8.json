@@ -1,0 +1,55 @@
+{
+
+  "$schema":  "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+
+  "databaseName": {
+	  "defaultValue": "cabsqldbuat",
+
+
+  "type": "string"
+
+  },
+
+  "serverName": {
+	  "defaultValue": "cabsqlserveruat",
+
+  "type": "string"
+
+  },
+
+  "serverLocation": {
+
+  "type": "string"
+
+  }
+
+  },
+
+  "resources": [
+
+  {
+
+  "type": "Microsoft.Sql/servers/databases",
+
+  "apiVersion": "2014-04-01-preview",
+
+  "location": "southeastasia",
+
+  "name": "[concat(parameters('servers_cabsqlserveruat_name'), '/', parameters('cabsqldbuat'))]",
+
+  "properties": {
+                "administratorLogin": "mecabaguio",
+				"administratorLoginPassword": "P@ssw0rd_1",
+                "version": "12.0"
+
+  }
+
+  }
+
+  ]
+
+  }
