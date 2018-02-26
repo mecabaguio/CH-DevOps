@@ -40,7 +40,7 @@
 
   "location": "southeastasia",
 
-  "name": "[concat(parameters('servers_cabsqlserveruat_name'), '/', parameters('cabsqldbuat'))]",
+  "name": "[concat(parameters('cabsqlserveruat'), '/', parameters('cabsqldbuat'))]",
 
   "properties": {
                 "administratorLogin": "mecabaguio",
