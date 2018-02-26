@@ -22,6 +22,7 @@
   },
 
   "serverLocation": {
+	  "defaultValue": "southeastasia",
 
   "type": "string"
 
