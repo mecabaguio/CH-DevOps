@@ -1,0 +1,3344 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "ch-im-datawarehouse-dev-sqlserver.database.windows.net",
+            "database": "IM-Data-Warehouse"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "ch-im-datawarehouse-dev-sqlserver.database.windows.net;IM-Data-Warehouse",
+          "Username": "ch-im-admin",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "VIEW_PBI_RentReview",
+        "columns": [
+          {
+            "name": "TenantCode",
+            "dataType": "string",
+            "sourceColumn": "TenantCode"
+          },
+          {
+            "name": "TenantName",
+            "dataType": "string",
+            "sourceColumn": "TenantName"
+          },
+          {
+            "name": "TradeName",
+            "dataType": "string",
+            "sourceColumn": "TradeName"
+          },
+          {
+            "name": "PropertyCode",
+            "dataType": "string",
+            "sourceColumn": "PropertyCode"
+          },
+          {
+            "name": "PropertyName",
+            "dataType": "string",
+            "sourceColumn": "PropertyName"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "MonthDiff",
+            "dataType": "int64",
+            "sourceColumn": "MonthDiff"
+          },
+          {
+            "name": "AnnualisedAmount",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualisedAmount"
+          },
+          {
+            "name": "MonthlyRent",
+            "dataType": "double",
+            "sourceColumn": "MonthlyRent"
+          },
+          {
+            "name": "Area",
+            "dataType": "double",
+            "sourceColumn": "Area"
+          },
+          {
+            "name": "AdditionOverCPI",
+            "dataType": "double",
+            "sourceColumn": "AdditionOverCPI"
+          },
+          {
+            "name": "MultiplicationOverCPI",
+            "dataType": "double",
+            "sourceColumn": "MultiplicationOverCPI"
+          },
+          {
+            "name": "IsMarketReview",
+            "dataType": "boolean",
+            "sourceColumn": "IsMarketReview"
+          },
+          {
+            "name": "CalendarMonth",
+            "dataType": "int64",
+            "sourceColumn": "CalendarMonth",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantId",
+            "dataType": "int64",
+            "sourceColumn": "TenantId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyId",
+            "dataType": "int64",
+            "sourceColumn": "PropertyId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "NextReviewDate",
+            "dataType": "dateTime",
+            "sourceColumn": "NextReviewDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dbo_VIEW_PBI_RentReview = Source{[Schema=\"dbo\",Item=\"VIEW_PBI_RentReview\"]}[Data]",
+                "in",
+                "    dbo_VIEW_PBI_RentReview"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimBillingCustomer",
+        "columns": [
+          {
+            "name": "BillingCustomerID",
+            "dataType": "int64",
+            "sourceColumn": "BillingCustomerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BillingCustomerCode",
+            "dataType": "string",
+            "sourceColumn": "BillingCustomerCode"
+          },
+          {
+            "name": "BillingCustomerName",
+            "dataType": "string",
+            "sourceColumn": "BillingCustomerName"
+          },
+          {
+            "name": "BillingCustomerSourceID",
+            "dataType": "double",
+            "sourceColumn": "BillingCustomerSourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimBillingCustomer = Source{[Schema=\"dim\",Item=\"DimBillingCustomer\"]}[Data]",
+                "in",
+                "    dim_DimBillingCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimDate",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayOfWeekName",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeekName"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CalendarMonth",
+            "dataType": "int64",
+            "sourceColumn": "CalendarMonth",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CalendarMonthName",
+            "dataType": "string",
+            "sourceColumn": "CalendarMonthName"
+          },
+          {
+            "name": "FinancialYear",
+            "dataType": "int64",
+            "sourceColumn": "FinancialYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FinancialQuarter",
+            "dataType": "int64",
+            "sourceColumn": "FinancialQuarter",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimDate = Source{[Schema=\"dim\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dim_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimGLAccount",
+        "columns": [
+          {
+            "name": "GLAccountID",
+            "dataType": "int64",
+            "sourceColumn": "GLAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLAccountCode",
+            "dataType": "string",
+            "sourceColumn": "GLAccountCode"
+          },
+          {
+            "name": "GLAccountName",
+            "dataType": "string",
+            "sourceColumn": "GLAccountName"
+          },
+          {
+            "name": "GLAccountType",
+            "dataType": "string",
+            "sourceColumn": "GLAccountType"
+          },
+          {
+            "name": "NormalBalance",
+            "dataType": "string",
+            "sourceColumn": "NormalBalance"
+          },
+          {
+            "name": "TotalIntoGLAccountCode",
+            "dataType": "string",
+            "sourceColumn": "TotalIntoGLAccountCode"
+          },
+          {
+            "name": "GLAccountSourceID",
+            "dataType": "double",
+            "sourceColumn": "GLAccountSourceID",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "Total9993",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"9993\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total7699",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"7699\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total4499",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"4499\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total4498",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"4498\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total2999",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"2999\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total7399",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"7399\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Total5999",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "PATHCONTAINS(PATH('dim DimGLAccount'[GLAccountCode],'dim DimGLAccount'[TotalIntoGLAccountCode]), \"5999\") ",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimGLAccount = Source{[Schema=\"dim\",Item=\"DimGLAccount\"]}[Data]",
+                "in",
+                "    dim_DimGLAccount"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimGLBook",
+        "columns": [
+          {
+            "name": "GLBookID",
+            "dataType": "int64",
+            "sourceColumn": "GLBookID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLBookCode",
+            "dataType": "string",
+            "sourceColumn": "GLBookCode"
+          },
+          {
+            "name": "GLBookSourceID",
+            "dataType": "double",
+            "sourceColumn": "GLBookSourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimGLBook = Source{[Schema=\"dim\",Item=\"DimGLBook\"]}[Data]",
+                "in",
+                "    dim_DimGLBook"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimProperty",
+        "columns": [
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyCode",
+            "dataType": "string",
+            "sourceColumn": "PropertyCode"
+          },
+          {
+            "name": "PropertyName",
+            "dataType": "string",
+            "sourceColumn": "PropertyName"
+          },
+          {
+            "name": "Address",
+            "dataType": "string",
+            "sourceColumn": "Address"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "State",
+            "dataType": "string",
+            "sourceColumn": "State"
+          },
+          {
+            "name": "PostCode",
+            "dataType": "string",
+            "sourceColumn": "PostCode"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country"
+          },
+          {
+            "name": "Sector",
+            "dataType": "string",
+            "sourceColumn": "Sector"
+          },
+          {
+            "name": "Hub",
+            "dataType": "string",
+            "sourceColumn": "Hub"
+          },
+          {
+            "name": "AssetId",
+            "dataType": "int64",
+            "sourceColumn": "AssetId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertySourceID",
+            "dataType": "double",
+            "sourceColumn": "PropertySourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimProperty = Source{[Schema=\"dim\",Item=\"DimProperty\"]}[Data]",
+                "in",
+                "    dim_DimProperty"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimTenant",
+        "columns": [
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantCode",
+            "dataType": "string",
+            "sourceColumn": "TenantCode"
+          },
+          {
+            "name": "BillingCustomerID",
+            "dataType": "int64",
+            "sourceColumn": "BillingCustomerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerAccountID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantName",
+            "dataType": "string",
+            "sourceColumn": "TenantName"
+          },
+          {
+            "name": "TradeName",
+            "dataType": "string",
+            "sourceColumn": "TradeName"
+          },
+          {
+            "name": "TenantSourceID",
+            "dataType": "double",
+            "sourceColumn": "TenantSourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimTenant = Source{[Schema=\"dim\",Item=\"DimTenant\"]}[Data]",
+                "in",
+                "    dim_DimTenant"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimTenantContract",
+        "columns": [
+          {
+            "name": "TenantContractID",
+            "dataType": "int64",
+            "sourceColumn": "TenantContractID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantContractCode",
+            "dataType": "int64",
+            "sourceColumn": "TenantContractCode",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ContractType",
+            "dataType": "string",
+            "sourceColumn": "ContractType"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "UnitDescription",
+            "dataType": "string",
+            "sourceColumn": "UnitDescription"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimTenantContract = Source{[Schema=\"dim\",Item=\"DimTenantContract\"]}[Data]",
+                "in",
+                "    dim_DimTenantContract"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "TenancyCount",
+            "expression": "CALCULATE(DISTINCTCOUNT('dim DimTenantContract'[TenantID]), NOT 'dim DimTenant'[TenantName]  IN {\"Sundry Debtor\", \"Sundry Debtor 2\", \"Sundry Debtor Account\"},  ISBLANK(SEARCH(\"SIGNAGE\",'dim DimTenantContract'[UnitDescription],1,BLANK())), ISBLANK(SEARCH(\"STORERM\",'dim DimTenantContract'[UnitDescription],1,BLANK())))",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "dim DimTenantSalesType",
+        "columns": [
+          {
+            "name": "TenantSalesTypeID",
+            "dataType": "int64",
+            "sourceColumn": "TenantSalesTypeID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantSalesTypeCode",
+            "dataType": "string",
+            "sourceColumn": "TenantSalesTypeCode"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description"
+          },
+          {
+            "name": "TenantSalesTypeSourceID",
+            "dataType": "double",
+            "sourceColumn": "TenantSalesTypeSourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimTenantSalesType = Source{[Schema=\"dim\",Item=\"DimTenantSalesType\"]}[Data]",
+                "in",
+                "    dim_DimTenantSalesType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimTransaction",
+        "columns": [
+          {
+            "name": "TransactionID",
+            "dataType": "int64",
+            "sourceColumn": "TransactionID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TransactionCode",
+            "dataType": "string",
+            "sourceColumn": "TransactionCode"
+          },
+          {
+            "name": "TransactionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "TransactionDate"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description"
+          },
+          {
+            "name": "PostMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "PostMonth"
+          },
+          {
+            "name": "CreateDate",
+            "dataType": "dateTime",
+            "sourceColumn": "CreateDate"
+          },
+          {
+            "name": "TransactionSourceID",
+            "dataType": "double",
+            "sourceColumn": "TransactionSourceID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimTransaction = Source{[Schema=\"dim\",Item=\"DimTransaction\"]}[Data]",
+                "in",
+                "    dim_DimTransaction"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimUnit",
+        "columns": [
+          {
+            "name": "UnitID",
+            "dataType": "int64",
+            "sourceColumn": "UnitID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitCode",
+            "dataType": "string",
+            "sourceColumn": "UnitCode"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitType",
+            "dataType": "string",
+            "sourceColumn": "UnitType"
+          },
+          {
+            "name": "Floor",
+            "dataType": "string",
+            "sourceColumn": "Floor"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "boolean",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "UnitSourceID",
+            "dataType": "double",
+            "sourceColumn": "UnitSourceID",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "IsVacant",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": "NOT CONTAINS('fact FactUnitSchedule','fact FactUnitSchedule'[UnitID],'dim DimUnit'[UnitID])",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimUnit = Source{[Schema=\"dim\",Item=\"DimUnit\"]}[Data]",
+                "in",
+                "    dim_DimUnit"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "UnitCount",
+            "expression": "CALCULATE(COUNT('dim DimUnit'[UnitCode]),'dim DimUnit'[IsActive] = TRUE)",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactGeneralLedger",
+        "columns": [
+          {
+            "name": "GeneralLedgerID",
+            "dataType": "int64",
+            "sourceColumn": "GeneralLedgerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLAccountID",
+            "dataType": "int64",
+            "sourceColumn": "GLAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PostMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "PostMonth"
+          },
+          {
+            "name": "GLBookID",
+            "dataType": "int64",
+            "sourceColumn": "GLBookID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BeginBalance",
+            "dataType": "decimal",
+            "sourceColumn": "BeginBalance"
+          },
+          {
+            "name": "MonthToDateAmount",
+            "dataType": "decimal",
+            "sourceColumn": "MonthToDateAmount"
+          },
+          {
+            "name": "EndBalance",
+            "dataType": "decimal",
+            "sourceColumn": "EndBalance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactGeneralLedger = Source{[Schema=\"fact\",Item=\"FactGeneralLedger\"]}[Data]",
+                "in",
+                "    fact_FactGeneralLedger"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "NOI",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total9993] = TRUE, 'dim DimGLBook'[GLBookCode] = \"Accrual\")",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "NPI",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total9993] = TRUE, 'dim DimGLBook'[GLBookCode] IN { \"Accrual\",\"Amortisation\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalAsset",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total2999] = TRUE, 'dim DimGLBook'[GLBookCode] IN { \"Accrual\",\"Amortisation\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalLiability",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total4498] = TRUE, 'dim DimGLBook'[GLBookCode] IN { \"Accrual\",\"Amortisation\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "NetAsset",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total4499] = TRUE, 'dim DimGLBook'[GLBookCode] IN { \"Accrual\",\"Amortisation\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "NRE",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total7699] = TRUE, 'dim DimGLBook'[GLBookCode] = \"Accrual\")",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "RecoverableExpense",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total7399]= TRUE, 'dim DimGLBook'[GLBookCode] = \"Accrual\")",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalGL5999",
+            "expression": "CALCULATE(SUM('fact FactGeneralLedger'[EndBalance]), 'dim DimGLAccount'[Total5999]= TRUE, 'dim DimGLBook'[GLBookCode] = \"Accrual\")",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalIncome",
+            "expression": "[NOI]-[TotalGL5999]",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactGeneralLedgerDetail",
+        "columns": [
+          {
+            "name": "GeneralLedgerDetailID",
+            "dataType": "int64",
+            "sourceColumn": "GeneralLedgerDetailID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLBookID",
+            "dataType": "int64",
+            "sourceColumn": "GLBookID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLAccountID",
+            "dataType": "int64",
+            "sourceColumn": "GLAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TransactionCode",
+            "dataType": "string",
+            "sourceColumn": "TransactionCode"
+          },
+          {
+            "name": "PostMonth",
+            "dataType": "dateTime",
+            "sourceColumn": "PostMonth"
+          },
+          {
+            "name": "TransactionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "TransactionDate"
+          },
+          {
+            "name": "Amount",
+            "dataType": "decimal",
+            "sourceColumn": "Amount"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactGeneralLedgerDetail = Source{[Schema=\"fact\",Item=\"FactGeneralLedgerDetail\"]}[Data]",
+                "in",
+                "    fact_FactGeneralLedgerDetail"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact FactPropertyAreaRemeasure",
+        "columns": [
+          {
+            "name": "PropertyAreaRemeasureID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyAreaRemeasureID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "Area",
+            "dataType": "double",
+            "sourceColumn": "Area"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactPropertyAreaRemeasure = Source{[Schema=\"fact\",Item=\"FactPropertyAreaRemeasure\"]}[Data]",
+                "in",
+                "    fact_FactPropertyAreaRemeasure"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "PropertyNLA",
+            "expression": "CALCULATE(SUM('fact FactPropertyAreaRemeasure'[Area]),'dim DimProperty'[Sector]=\"Office\", 'fact FactPropertyAreaRemeasure'[FromDate] <= TODAY(), IF(ISBLANK('fact FactPropertyAreaRemeasure'[ToDate]),TODAY()+1 , 'fact FactPropertyAreaRemeasure'[ToDate]) >= TODAY())",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "PropertyGLA",
+            "expression": "CALCULATE(SUM('fact FactPropertyAreaRemeasure'[Area]),'dim DimProperty'[Sector] IN {\"Retail\",\"Industrial\"}, 'fact FactPropertyAreaRemeasure'[FromDate] <= TODAY(), IF(ISBLANK('fact FactPropertyAreaRemeasure'[ToDate]),TODAY()+1 , 'fact FactPropertyAreaRemeasure'[ToDate]) >= TODAY())",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactTenantChargeSchedule",
+        "columns": [
+          {
+            "name": "TenantChargeScheduleID",
+            "dataType": "int64",
+            "sourceColumn": "TenantChargeScheduleID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerAccountID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantContractID",
+            "dataType": "int64",
+            "sourceColumn": "TenantContractID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitID",
+            "dataType": "int64",
+            "sourceColumn": "UnitID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLAccountID",
+            "dataType": "int64",
+            "sourceColumn": "GLAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "AnnualisedAmount",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualisedAmount"
+          },
+          {
+            "name": "FixedAmountIncrease",
+            "dataType": "double",
+            "sourceColumn": "FixedAmountIncrease"
+          },
+          {
+            "name": "FixedPercentIncrease",
+            "dataType": "double",
+            "sourceColumn": "FixedPercentIncrease"
+          },
+          {
+            "name": "AdditionOverCPI",
+            "dataType": "double",
+            "sourceColumn": "AdditionOverCPI"
+          },
+          {
+            "name": "MultiplicationOverCPI",
+            "dataType": "double",
+            "sourceColumn": "MultiplicationOverCPI"
+          },
+          {
+            "name": "IsMarketReview",
+            "dataType": "boolean",
+            "sourceColumn": "IsMarketReview"
+          },
+          {
+            "name": "MinimumPercentIncrease",
+            "dataType": "double",
+            "sourceColumn": "MinimumPercentIncrease"
+          },
+          {
+            "name": "MaximumPercentIncrease",
+            "dataType": "double",
+            "sourceColumn": "MaximumPercentIncrease"
+          },
+          {
+            "name": "ChargeScheduleNumber",
+            "dataType": "int64",
+            "sourceColumn": "ChargeScheduleNumber"
+          },
+          {
+            "name": "IsEstimated",
+            "dataType": "boolean",
+            "sourceColumn": "IsEstimated"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactTenantChargeSchedule = Source{[Schema=\"fact\",Item=\"FactTenantChargeSchedule\"]}[Data]",
+                "in",
+                "    fact_FactTenantChargeSchedule"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "NetRent",
+            "expression": "CALCULATE(SUM('fact FactTenantChargeSchedule'[AnnualisedAmount]),'dim DimGLAccount'[GLAccountCode] IN {\"5404\", \"5406\", \"5408\",\"5409\",\"5410\",\"5412\",\"5420\",\"5421\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "GrossRent",
+            "expression": "CALCULATE(SUM('fact FactTenantChargeSchedule'[AnnualisedAmount]),'dim DimGLAccount'[GLAccountCode] IN {\"5404\", \"5406\", \"5408\",\"5409\",\"5410\",\"5412\",\"5420\",\"5421\",\"5572\"})",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "CurrentNetRent",
+            "expression": "CALCULATE(SUM('fact FactTenantChargeSchedule'[AnnualisedAmount]),'dim DimGLAccount'[GLAccountCode] IN {\"5404\", \"5406\", \"5408\",\"5409\",\"5410\",\"5412\",\"5420\",\"5421\"},LASTDATE('fact FactTenantChargeSchedule'[FromDate]))",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "CurrentGrossRent",
+            "expression": "CALCULATE(SUM('fact FactTenantChargeSchedule'[AnnualisedAmount]),'dim DimGLAccount'[GLAccountCode] IN {\"5404\", \"5406\", \"5408\",\"5409\",\"5410\",\"5412\",\"5420\",\"5421\",\"5572\"},LASTDATE('fact FactTenantChargeSchedule'[FromDate]))",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactUnitAreaRemeasure",
+        "columns": [
+          {
+            "name": "UnitAreaRemeasureID",
+            "dataType": "int64",
+            "sourceColumn": "UnitAreaRemeasureID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitID",
+            "dataType": "int64",
+            "sourceColumn": "UnitID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "Area",
+            "dataType": "double",
+            "sourceColumn": "Area"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactUnitAreaRemeasure = Source{[Schema=\"fact\",Item=\"FactUnitAreaRemeasure\"]}[Data]",
+                "in",
+                "    fact_FactUnitAreaRemeasure"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "UnitNLA",
+            "expression": "CALCULATE(SUM('fact FactUnitAreaRemeasure'[Area]),'dim DimProperty'[Sector]=\"Office\", 'fact FactUnitAreaRemeasure'[FromDate] < TODAY(), IF(ISBLANK('fact FactUnitAreaRemeasure'[ToDate]),TODAY()+1 , 'fact FactUnitAreaRemeasure'[ToDate]) > TODAY())",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "UnitGLA",
+            "expression": "CALCULATE(SUM('fact FactUnitAreaRemeasure'[Area]),'dim DimProperty'[Sector] IN {\"Retail\", \"Industrial\"}, 'fact FactUnitAreaRemeasure'[FromDate] <= TODAY(), IF(ISBLANK('fact FactUnitAreaRemeasure'[ToDate]),TODAY()+1 , 'fact FactUnitAreaRemeasure'[ToDate]) >= TODAY())",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactUnitSchedule",
+        "columns": [
+          {
+            "name": "UnitScheduleID",
+            "dataType": "int64",
+            "sourceColumn": "UnitScheduleID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerAccountID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitID",
+            "dataType": "int64",
+            "sourceColumn": "UnitID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FromDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FromDate"
+          },
+          {
+            "name": "ToDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ToDate"
+          },
+          {
+            "name": "ContractArea",
+            "dataType": "double",
+            "sourceColumn": "ContractArea"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactUnitSchedule = Source{[Schema=\"fact\",Item=\"FactUnitSchedule\"]}[Data]",
+                "in",
+                "    fact_FactUnitSchedule"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "CurrentContractArea",
+            "expression": "CALCULATE(SUM([ContractArea]),LASTDATE('fact FactUnitSchedule'[FromDate]))",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalContractArea",
+            "expression": "SUM('fact FactUnitSchedule'[ContractArea])",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "fact FactTenantSales",
+        "columns": [
+          {
+            "name": "TenantSalesID",
+            "dataType": "int64",
+            "sourceColumn": "TenantSalesID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantSalesTypeID",
+            "dataType": "int64",
+            "sourceColumn": "TenantSalesTypeID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SalesPeriod",
+            "dataType": "dateTime",
+            "sourceColumn": "SalesPeriod"
+          },
+          {
+            "name": "NetTurnover",
+            "dataType": "decimal",
+            "sourceColumn": "NetTurnover"
+          },
+          {
+            "name": "GrossTurnover",
+            "dataType": "decimal",
+            "sourceColumn": "GrossTurnover"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactTenantSales = Source{[Schema=\"fact\",Item=\"FactTenantSales\"]}[Data]",
+                "in",
+                "    fact_FactTenantSales"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "MATbyPeriod",
+            "expression": [
+              "CALCULATE (",
+              "    SUM('fact FactTenantSales'[NetTurnover]),",
+              "    DATESBETWEEN (",
+              "        'dim DimDate'[Date],",
+              "        NEXTDAY ( SAMEPERIODLASTYEAR ( LASTDATE ( 'dim DimDate'[Date] ) ) ),",
+              "        LASTDATE ( 'dim DimDate'[Date] )",
+              "    )",
+              ")"
+            ],
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "MATComparablebyPeriod",
+            "expression": [
+              "IF(CALCULATE(COUNT('fact FactTenantSales'[NetTurnover]),DATESBETWEEN (",
+              "        'dim DimDate'[Date],",
+              "        NEXTDAY ( SAMEPERIODLASTYEAR ( LASTDATE ( 'dim DimDate'[Date] ) ) ),",
+              "        LASTDATE ( 'dim DimDate'[Date] )",
+              "    ))>11,[MATbyPeriod], 0)  "
+            ],
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "PercentOccupancyCost",
+            "expression": "IF(NOT ISBLANK(IFERROR([GrossRent]/[MATComparablebyPeriod],0) * 100), CONCATENATE(FIXED(IFERROR([GrossRent]/[MATComparablebyPeriod],0) * 100,2,1),\" %\"),BLANK())",
+            "detailRowsDefinition": {}
+          }
+        ]
+      },
+      {
+        "name": "dim DimAsset",
+        "columns": [
+          {
+            "name": "AssetID",
+            "dataType": "int64",
+            "sourceColumn": "AssetID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AssetCode",
+            "dataType": "string",
+            "sourceColumn": "AssetCode"
+          },
+          {
+            "name": "AssetName",
+            "dataType": "string",
+            "sourceColumn": "AssetName"
+          },
+          {
+            "name": "Sector",
+            "dataType": "string",
+            "sourceColumn": "Sector"
+          },
+          {
+            "name": "Type",
+            "dataType": "string",
+            "sourceColumn": "Type"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimAsset = Source{[Schema=\"dim\",Item=\"DimAsset\"]}[Data]",
+                "in",
+                "    dim_DimAsset"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimFund",
+        "columns": [
+          {
+            "name": "FundID",
+            "dataType": "int64",
+            "sourceColumn": "FundID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FundCode",
+            "dataType": "string",
+            "sourceColumn": "FundCode"
+          },
+          {
+            "name": "FundName",
+            "dataType": "string",
+            "sourceColumn": "FundName"
+          },
+          {
+            "name": "Sector",
+            "dataType": "string",
+            "sourceColumn": "Sector"
+          },
+          {
+            "name": "Type",
+            "dataType": "string",
+            "sourceColumn": "Type"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimFund = Source{[Schema=\"dim\",Item=\"DimFund\"]}[Data]",
+                "in",
+                "    dim_DimFund"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact FactFundAssetOwnership",
+        "columns": [
+          {
+            "name": "FundAssetOwnershipID",
+            "dataType": "int64",
+            "sourceColumn": "FundAssetOwnershipID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FundID",
+            "dataType": "int64",
+            "sourceColumn": "FundID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ChildFundID",
+            "dataType": "int64",
+            "sourceColumn": "ChildFundID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AssetID",
+            "dataType": "int64",
+            "sourceColumn": "AssetID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "DirectOwnership",
+            "dataType": "double",
+            "sourceColumn": "DirectOwnership"
+          },
+          {
+            "name": "RelativeOwnership",
+            "dataType": "double",
+            "sourceColumn": "RelativeOwnership"
+          },
+          {
+            "name": "OwnershipClassification",
+            "dataType": "string",
+            "sourceColumn": "OwnershipClassification"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactFundAssetOwnership = Source{[Schema=\"fact\",Item=\"FactFundAssetOwnership\"]}[Data]",
+                "in",
+                "    fact_FactFundAssetOwnership"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact FactValuation",
+        "columns": [
+          {
+            "name": "ValuationID",
+            "dataType": "int64",
+            "sourceColumn": "ValuationID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AssetID",
+            "dataType": "int64",
+            "sourceColumn": "AssetID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ExtAssetValuationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ExtAssetValuationDate"
+          },
+          {
+            "name": "ExtAssetValuation",
+            "dataType": "decimal",
+            "sourceColumn": "ExtAssetValuation"
+          },
+          {
+            "name": "BookValue",
+            "dataType": "decimal",
+            "sourceColumn": "BookValue"
+          },
+          {
+            "name": "BookValueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BookValueDate"
+          },
+          {
+            "name": "ExternalValuer",
+            "dataType": "string",
+            "sourceColumn": "ExternalValuer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactValuation = Source{[Schema=\"fact\",Item=\"FactValuation\"]}[Data]",
+                "in",
+                "    fact_FactValuation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact FactRegistryInvestment",
+        "columns": [
+          {
+            "name": "RegistryInvestmentID",
+            "dataType": "int64",
+            "sourceColumn": "RegistryInvestmentID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RegistryInvestorID",
+            "dataType": "int64",
+            "sourceColumn": "RegistryInvestorID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RegistryFundID",
+            "dataType": "int64",
+            "sourceColumn": "RegistryFundID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UnitHolding",
+            "dataType": "double",
+            "sourceColumn": "UnitHolding"
+          },
+          {
+            "name": "UnitHoldingValuation",
+            "dataType": "decimal",
+            "sourceColumn": "UnitHoldingValuation"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactRegistryInvestment = Source{[Schema=\"fact\",Item=\"FactRegistryInvestment\"]}[Data]",
+                "in",
+                "    fact_FactRegistryInvestment"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimRegistryFund",
+        "columns": [
+          {
+            "name": "RegistryFundID",
+            "dataType": "int64",
+            "sourceColumn": "RegistryFundID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RegistryFundCode",
+            "dataType": "string",
+            "sourceColumn": "RegistryFundCode"
+          },
+          {
+            "name": "RegistryFundName",
+            "dataType": "string",
+            "sourceColumn": "RegistryFundName"
+          },
+          {
+            "name": "FundType",
+            "dataType": "string",
+            "sourceColumn": "FundType"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimRegistryFund = Source{[Schema=\"dim\",Item=\"DimRegistryFund\"]}[Data]",
+                "in",
+                "    dim_DimRegistryFund"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim DimRegistryInvestor",
+        "columns": [
+          {
+            "name": "RegistryInvestorID",
+            "dataType": "int64",
+            "sourceColumn": "RegistryInvestorID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RegistryInvestorCode",
+            "dataType": "string",
+            "sourceColumn": "RegistryInvestorCode"
+          },
+          {
+            "name": "RegistryInvestorName",
+            "dataType": "string",
+            "sourceColumn": "RegistryInvestorName"
+          },
+          {
+            "name": "Addressee",
+            "dataType": "string",
+            "sourceColumn": "Addressee"
+          },
+          {
+            "name": "PostalAddressLine1",
+            "dataType": "string",
+            "sourceColumn": "PostalAddressLine1"
+          },
+          {
+            "name": "PostalAddressLine2",
+            "dataType": "string",
+            "sourceColumn": "PostalAddressLine2"
+          },
+          {
+            "name": "PostalAddressLine3",
+            "dataType": "string",
+            "sourceColumn": "PostalAddressLine3"
+          },
+          {
+            "name": "PostalCity",
+            "dataType": "string",
+            "sourceColumn": "PostalCity"
+          },
+          {
+            "name": "PostalState",
+            "dataType": "string",
+            "sourceColumn": "PostalState"
+          },
+          {
+            "name": "PostalPostCode",
+            "dataType": "string",
+            "sourceColumn": "PostalPostCode"
+          },
+          {
+            "name": "PostalCountry",
+            "dataType": "string",
+            "sourceColumn": "PostalCountry"
+          },
+          {
+            "name": "ResidentialAddressLine1",
+            "dataType": "string",
+            "sourceColumn": "ResidentialAddressLine1"
+          },
+          {
+            "name": "ResidentialAddressLine2",
+            "dataType": "string",
+            "sourceColumn": "ResidentialAddressLine2"
+          },
+          {
+            "name": "ResidentialAddressLine3",
+            "dataType": "string",
+            "sourceColumn": "ResidentialAddressLine3"
+          },
+          {
+            "name": "ResidentialCity",
+            "dataType": "string",
+            "sourceColumn": "ResidentialCity"
+          },
+          {
+            "name": "ResidentialState",
+            "dataType": "string",
+            "sourceColumn": "ResidentialState"
+          },
+          {
+            "name": "ResidentialPostCode",
+            "dataType": "string",
+            "sourceColumn": "ResidentialPostCode"
+          },
+          {
+            "name": "ResidentialCountry",
+            "dataType": "string",
+            "sourceColumn": "ResidentialCountry"
+          },
+          {
+            "name": "BusinessPhone",
+            "dataType": "string",
+            "sourceColumn": "BusinessPhone"
+          },
+          {
+            "name": "HomePhone",
+            "dataType": "string",
+            "sourceColumn": "HomePhone"
+          },
+          {
+            "name": "MobilePhone",
+            "dataType": "string",
+            "sourceColumn": "MobilePhone"
+          },
+          {
+            "name": "Fax",
+            "dataType": "string",
+            "sourceColumn": "Fax"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    dim_DimRegistryInvestor = Source{[Schema=\"dim\",Item=\"DimRegistryInvestor\"]}[Data]",
+                "in",
+                "    dim_DimRegistryInvestor"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact FactAccountsReceivableDetail",
+        "columns": [
+          {
+            "name": "AccountsReceivableDetailID",
+            "dataType": "int64",
+            "sourceColumn": "AccountsReceivableDetailID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ChargeTransactionID",
+            "dataType": "int64",
+            "sourceColumn": "ChargeTransactionID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GLAccountID",
+            "dataType": "int64",
+            "sourceColumn": "GLAccountID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PropertyID",
+            "dataType": "int64",
+            "sourceColumn": "PropertyID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TenantID",
+            "dataType": "int64",
+            "sourceColumn": "TenantID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BillingCustomerID",
+            "dataType": "int64",
+            "sourceColumn": "BillingCustomerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate"
+          },
+          {
+            "name": "ChargeAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ChargeAmount"
+          },
+          {
+            "name": "ChargeGST",
+            "dataType": "decimal",
+            "sourceColumn": "ChargeGST"
+          },
+          {
+            "name": "ReceiptDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ReceiptDate"
+          },
+          {
+            "name": "ReceiptAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ReceiptAmount"
+          },
+          {
+            "name": "ReceiptTransactionID",
+            "dataType": "int64",
+            "sourceColumn": "ReceiptTransactionID",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "OutstandingAmount",
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "expression": "[ChargeAmount] + [ChargeGST] - [ReceiptAmount]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "DateVariance",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "IF('fact FactAccountsReceivableDetail'[DueDate] > TODAY(),0,DATEDIFF('fact FactAccountsReceivableDetail'[DueDate],TODAY(),DAY))",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "Overdue",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "IF(AND([DateVariance] > 0,[DateVariance] <31),\"0 to 30 days overdue\",IF(AND([DateVariance] > 30,[DateVariance] <61),\"30 to 60 days overdue\",IF(AND([DateVariance] > 60,[DateVariance] <91),\"60 to 90 days overdue\", IF([DateVariance] > 90,\"Over 90 days overdue \",\"Not yet due\" ))))"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ch-im-datawarehouse-prod-sqlserver database windows net;IM-Data-Warehouse\",",
+                "    fact_FactAccountsReceivableDetail = Source{[Schema=\"fact\",Item=\"FactAccountsReceivableDetail\"]}[Data]",
+                "in",
+                "    fact_FactAccountsReceivableDetail"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Arrears",
+            "expression": "CALCULATE(SUM('fact FactAccountsReceivableDetail'[OutstandingAmount]),NOT ISBLANK('fact FactAccountsReceivableDetail'[ChargeTransactionID]))",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "ARPrepayments",
+            "expression": "CALCULATE(SUM('fact FactAccountsReceivableDetail'[OutstandingAmount]), ISBLANK('fact FactAccountsReceivableDetail'[ChargeTransactionID]))",
+            "detailRowsDefinition": {}
+          },
+          {
+            "name": "TotalOutstanding",
+            "expression": "SUM('fact FactAccountsReceivableDetail'[ChargeAmount]) + Sum('fact FactAccountsReceivableDetail'[ChargeGST]) - SUM('fact FactAccountsReceivableDetail'[ReceiptAmount])",
+            "detailRowsDefinition": {}
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "a66b44e0-d4de-46d8-80b2-e08b1d4da0b5",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "BillingCustomerID",
+        "toTable": "dim DimBillingCustomer",
+        "toColumn": "BillingCustomerID"
+      },
+      {
+        "name": "5b83362d-0a90-4e3e-bdcd-6f514418deb0",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "ChargeTransactionID",
+        "toTable": "dim DimTransaction",
+        "toColumn": "TransactionID"
+      },
+      {
+        "name": "e812650e-20f8-4032-9e1e-c2f7b6237509",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "GLAccountID",
+        "toTable": "dim DimGLAccount",
+        "toColumn": "GLAccountID"
+      },
+      {
+        "name": "88cec0da-e36e-4064-9be0-b6978748634b",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "316c36f0-8ef2-4087-a315-56b326f7ef76",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "ReceiptTransactionID",
+        "toTable": "dim DimTransaction",
+        "toColumn": "TransactionID",
+        "isActive": false
+      },
+      {
+        "name": "17137f17-1a28-488a-ae94-1da74e9df9b5",
+        "fromTable": "fact FactAccountsReceivableDetail",
+        "fromColumn": "TenantID",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID"
+      },
+      {
+        "name": "97897cdc-eb70-4d4e-a611-e0e2c5c02d6d",
+        "fromTable": "dim DimTenantContract",
+        "fromColumn": "TenantID",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID"
+      },
+      {
+        "name": "31677815-227a-4d09-9fe4-2bf5cb13d408",
+        "fromTable": "dim DimTenantContract",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "3e0f2690-badd-45c0-a087-4c9d56d28081",
+        "fromTable": "dim DimUnit",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "03f07038-6b1f-4b77-a8c9-941699343c0c",
+        "fromTable": "fact FactGeneralLedger",
+        "fromColumn": "GLAccountID",
+        "toTable": "dim DimGLAccount",
+        "toColumn": "GLAccountID"
+      },
+      {
+        "name": "d4e985b3-73aa-4fbf-8e25-d5cbfec524a3",
+        "fromTable": "fact FactGeneralLedger",
+        "fromColumn": "GLBookID",
+        "toTable": "dim DimGLBook",
+        "toColumn": "GLBookID"
+      },
+      {
+        "name": "7e31cb0a-ac24-48e8-849a-b8662742e20d",
+        "fromTable": "fact FactGeneralLedger",
+        "fromColumn": "PostMonth",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "e948539c-039b-4b59-ae03-02dabbb7d7de",
+        "fromTable": "fact FactGeneralLedger",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "13eee233-c74d-44f7-87f4-063e854e33ba",
+        "fromTable": "fact FactGeneralLedgerDetail",
+        "fromColumn": "GLAccountID",
+        "toTable": "dim DimGLAccount",
+        "toColumn": "GLAccountID"
+      },
+      {
+        "name": "d467c68e-32c2-41ca-8fee-cbd664917a76",
+        "fromTable": "fact FactGeneralLedgerDetail",
+        "fromColumn": "GLBookID",
+        "toTable": "dim DimGLBook",
+        "toColumn": "GLBookID"
+      },
+      {
+        "name": "b8e4ea6d-f70f-4961-a61c-1ac83bc00bd7",
+        "fromTable": "fact FactGeneralLedgerDetail",
+        "fromColumn": "PostMonth",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "20ae69fa-d115-42e2-88ac-6592d73fef62",
+        "fromTable": "fact FactGeneralLedgerDetail",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "577f44e6-144c-4800-a120-bd6d12a43d16",
+        "fromTable": "fact FactPropertyAreaRemeasure",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "a64e352c-1c5b-4af5-80d9-0765a1a51a65",
+        "fromTable": "fact FactPropertyAreaRemeasure",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "5e3f396e-a13c-4560-84bd-b41f349465a9",
+        "fromTable": "fact FactPropertyAreaRemeasure",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "8b71ca38-444e-4b61-a21e-fae40a0f39ab",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "cf1a82d8-7847-41b6-b4d9-626041ab2000",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "GLAccountID",
+        "toTable": "dim DimGLAccount",
+        "toColumn": "GLAccountID"
+      },
+      {
+        "name": "5478051f-2d2b-4ff5-9f82-6db9efeb9ba7",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "13171a48-4351-455b-a20b-0906e43edd5f",
+        "fromTable": "fact FactUnitAreaRemeasure",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "6d0667a9-0398-492c-8fb2-cbacc33495e5",
+        "fromTable": "fact FactUnitAreaRemeasure",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID",
+        "isActive": false
+      },
+      {
+        "name": "4853d727-288f-40b4-8724-aefeb1b10f75",
+        "fromTable": "fact FactUnitAreaRemeasure",
+        "fromColumn": "UnitID",
+        "toTable": "dim DimUnit",
+        "toColumn": "UnitID"
+      },
+      {
+        "name": "c0547259-d4c3-4a03-9aec-4ae79bb8c48b",
+        "fromTable": "fact FactUnitAreaRemeasure",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "1c6c5894-e8b6-41ff-956d-c9bd5cb7167b",
+        "fromTable": "VIEW_PBI_RentReview",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "4c4bc31c-f239-4239-8feb-9995ef88f715",
+        "fromTable": "fact FactUnitSchedule",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "6ad65d82-b2d7-4a09-b7a2-03fea689d59b",
+        "fromTable": "fact FactUnitSchedule",
+        "fromColumn": "TenantID",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID"
+      },
+      {
+        "name": "1ed62ffd-28c5-4d8d-9106-31e5884e29a5",
+        "fromTable": "fact FactUnitSchedule",
+        "fromColumn": "ToDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "7cd543ac-3c63-404f-bf81-c859502963f8",
+        "fromTable": "fact FactUnitSchedule",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID",
+        "isActive": false
+      },
+      {
+        "name": "f58913dc-dbe0-48dc-a1b2-a81cd3343678",
+        "fromTable": "fact FactUnitSchedule",
+        "fromColumn": "UnitID",
+        "toTable": "dim DimUnit",
+        "toColumn": "UnitID"
+      },
+      {
+        "name": "f5777673-9a71-479b-b3df-5887986c823a",
+        "fromTable": "fact FactTenantSales",
+        "fromColumn": "SalesPeriod",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "ec18d2fc-06b3-45f5-af2c-0ad5b122b8d2",
+        "fromTable": "fact FactTenantSales",
+        "fromColumn": "TenantSalesTypeID",
+        "toTable": "dim DimTenantSalesType",
+        "toColumn": "TenantSalesTypeID"
+      },
+      {
+        "name": "ad637102-4245-4b52-96c3-7ae93a060604",
+        "fromTable": "fact FactFundAssetOwnership",
+        "fromColumn": "AssetID",
+        "toTable": "dim DimAsset",
+        "toColumn": "AssetID"
+      },
+      {
+        "name": "189501f7-4d14-4a4c-8d8d-92df22a73271",
+        "fromTable": "fact FactRegistryInvestment",
+        "fromColumn": "RegistryFundID",
+        "toTable": "dim DimRegistryFund",
+        "toColumn": "RegistryFundID"
+      },
+      {
+        "name": "8b76a92b-baf6-46c0-91e9-e13c0cfdc5b5",
+        "fromTable": "fact FactRegistryInvestment",
+        "fromColumn": "RegistryInvestorID",
+        "toTable": "dim DimRegistryInvestor",
+        "toColumn": "RegistryInvestorID"
+      },
+      {
+        "name": "f9d70313-5a3e-49a4-bf2d-25731f2fea83",
+        "fromTable": "fact FactFundAssetOwnership",
+        "fromColumn": "FundID",
+        "toTable": "dim DimFund",
+        "toColumn": "FundID"
+      },
+      {
+        "name": "da0ab608-5df5-4b10-bdb2-052d141ce0c0",
+        "fromTable": "fact FactFundAssetOwnership",
+        "fromColumn": "ChildFundID",
+        "toTable": "dim DimFund",
+        "toColumn": "FundID",
+        "isActive": false
+      },
+      {
+        "name": "9339d880-9298-4da0-bc2d-90240c912d4f",
+        "fromTable": "fact FactFundAssetOwnership",
+        "fromColumn": "Date",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "dfe3ee7d-44f2-4f16-bff3-d6f683ebb4ac",
+        "fromTable": "fact FactValuation",
+        "fromColumn": "AssetID",
+        "toTable": "dim DimAsset",
+        "toColumn": "AssetID"
+      },
+      {
+        "name": "dc0824a9-0b50-445e-9df6-c6f0daa60075",
+        "fromTable": "fact FactValuation",
+        "fromColumn": "BookValueDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date"
+      },
+      {
+        "name": "198735f6-6db0-4b83-b4d7-cc72ee556a51",
+        "fromTable": "fact FactValuation",
+        "fromColumn": "ExtAssetValuationDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "aaf2a0e4-4350-4498-ac2e-03dd4825fcbc",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "PropertyID",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID",
+        "isActive": false
+      },
+      {
+        "name": "a99acf6a-21a9-4513-b18e-5f49f946625f",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "TenantID",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID",
+        "isActive": false
+      },
+      {
+        "name": "9b9f1103-65af-4ec8-8556-c8a778aa6102",
+        "fromTable": "dim DimTenantContract",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "dcfce0bd-ed15-4fa3-a1d9-2bb2c9855035",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "TenantContractID",
+        "toTable": "dim DimTenantContract",
+        "toColumn": "TenantContractID"
+      },
+      {
+        "name": "5dc764d5-a4b2-42dd-b8dd-f9f34320b72d",
+        "fromTable": "VIEW_PBI_RentReview",
+        "fromColumn": "PropertyId",
+        "toTable": "dim DimProperty",
+        "toColumn": "PropertyID"
+      },
+      {
+        "name": "7bde2f5f-c626-48a0-8815-cc67956f044d",
+        "fromTable": "fact FactTenantSales",
+        "fromColumn": "TenantID",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "2b36dd2d-fd4d-40b9-9a04-ebedae7e343b",
+        "fromTable": "VIEW_PBI_RentReview",
+        "fromColumn": "FromDate",
+        "toTable": "dim DimDate",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "c7c0b4bd-c7c2-4e40-a056-94ef11e0821c",
+        "fromTable": "VIEW_PBI_RentReview",
+        "fromColumn": "TenantId",
+        "toTable": "dim DimTenant",
+        "toColumn": "TenantID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "c536a772-23a3-488f-8cc0-2506ac09531c",
+        "fromTable": "fact FactTenantChargeSchedule",
+        "fromColumn": "UnitID",
+        "toTable": "dim DimUnit",
+        "toColumn": "UnitID"
+      },
+      {
+        "name": "632ead22-bf0d-41bc-9e96-62c5e3d1d868",
+        "fromTable": "dim DimProperty",
+        "fromColumn": "AssetId",
+        "toTable": "dim DimAsset",
+        "toColumn": "AssetID"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "PropertyAndUnit",
+        "tables": [
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimProperty",
+            "columns": [
+              {
+                "name": "Address"
+              },
+              {
+                "name": "City"
+              },
+              {
+                "name": "Country"
+              },
+              {
+                "name": "Hub"
+              },
+              {
+                "name": "PostCode"
+              },
+              {
+                "name": "PropertyCode"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "PropertyName"
+              },
+              {
+                "name": "Sector"
+              },
+              {
+                "name": "State"
+              }
+            ]
+          },
+          {
+            "name": "dim DimUnit",
+            "columns": [
+              {
+                "name": "Floor"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "UnitCode"
+              },
+              {
+                "name": "UnitID"
+              },
+              {
+                "name": "UnitType"
+              }
+            ]
+          },
+          {
+            "name": "fact FactPropertyAreaRemeasure",
+            "columns": [
+              {
+                "name": "Area"
+              },
+              {
+                "name": "FromDate"
+              },
+              {
+                "name": "PropertyAreaRemeasureID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "ToDate"
+              }
+            ],
+            "measures": [
+              {
+                "name": "PropertyGLA"
+              },
+              {
+                "name": "PropertyNLA"
+              }
+            ]
+          },
+          {
+            "name": "fact FactUnitAreaRemeasure",
+            "columns": [
+              {
+                "name": "Area"
+              },
+              {
+                "name": "FromDate"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "ToDate"
+              },
+              {
+                "name": "UnitAreaRemeasureID"
+              },
+              {
+                "name": "UnitID"
+              }
+            ],
+            "measures": [
+              {
+                "name": "UnitGLA"
+              },
+              {
+                "name": "UnitNLA"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TenancySchedule",
+        "tables": [
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimGLAccount",
+            "columns": [
+              {
+                "name": "GLAccountCode"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "GLAccountName"
+              },
+              {
+                "name": "GLAccountType"
+              },
+              {
+                "name": "NormalBalance"
+              },
+              {
+                "name": "TotalIntoGLAccountCode"
+              }
+            ]
+          },
+          {
+            "name": "dim DimProperty",
+            "columns": [
+              {
+                "name": "Address"
+              },
+              {
+                "name": "City"
+              },
+              {
+                "name": "Country"
+              },
+              {
+                "name": "Hub"
+              },
+              {
+                "name": "PostCode"
+              },
+              {
+                "name": "PropertyCode"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "PropertyName"
+              },
+              {
+                "name": "Sector"
+              },
+              {
+                "name": "State"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTenant",
+            "columns": [
+              {
+                "name": "BillingCustomerID"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantCode"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "TenantName"
+              },
+              {
+                "name": "TradeName"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTenantContract",
+            "columns": [
+              {
+                "name": "ContractType"
+              },
+              {
+                "name": "FromDate"
+              },
+              {
+                "name": "TenantContractCode"
+              },
+              {
+                "name": "TenantContractID"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "ToDate"
+              },
+              {
+                "name": "UnitDescription"
+              }
+            ],
+            "measures": [
+              {
+                "name": "TenancyCount"
+              }
+            ]
+          },
+          {
+            "name": "fact FactTenantChargeSchedule",
+            "columns": [
+              {
+                "name": "AnnualisedAmount"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "FromDate"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantChargeScheduleID"
+              },
+              {
+                "name": "TenantContractID"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "ToDate"
+              },
+              {
+                "name": "UnitID"
+              }
+            ],
+            "measures": [
+              {
+                "name": "GrossRent"
+              },
+              {
+                "name": "NetRent"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GeneralLedger",
+        "tables": [
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimGLAccount",
+            "columns": [
+              {
+                "name": "GLAccountCode"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "GLAccountName"
+              },
+              {
+                "name": "GLAccountType"
+              },
+              {
+                "name": "NormalBalance"
+              },
+              {
+                "name": "TotalIntoGLAccountCode"
+              }
+            ]
+          },
+          {
+            "name": "dim DimGLBook",
+            "columns": [
+              {
+                "name": "GLBookCode"
+              },
+              {
+                "name": "GLBookID"
+              }
+            ]
+          },
+          {
+            "name": "dim DimProperty",
+            "columns": [
+              {
+                "name": "Address"
+              },
+              {
+                "name": "City"
+              },
+              {
+                "name": "Country"
+              },
+              {
+                "name": "Hub"
+              },
+              {
+                "name": "PostCode"
+              },
+              {
+                "name": "PropertyCode"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "PropertyName"
+              },
+              {
+                "name": "Sector"
+              },
+              {
+                "name": "State"
+              }
+            ]
+          },
+          {
+            "name": "fact FactGeneralLedger",
+            "columns": [
+              {
+                "name": "BeginBalance"
+              },
+              {
+                "name": "EndBalance"
+              },
+              {
+                "name": "GeneralLedgerID"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "GLBookID"
+              },
+              {
+                "name": "MonthToDateAmount"
+              },
+              {
+                "name": "PostMonth"
+              },
+              {
+                "name": "PropertyID"
+              }
+            ]
+          },
+          {
+            "name": "fact FactGeneralLedgerDetail",
+            "columns": [
+              {
+                "name": "Amount"
+              },
+              {
+                "name": "GeneralLedgerDetailID"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "GLBookID"
+              },
+              {
+                "name": "PostMonth"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TransactionCode"
+              },
+              {
+                "name": "TransactionDate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "AccountsReceivable",
+        "tables": [
+          {
+            "name": "dim DimBillingCustomer",
+            "columns": [
+              {
+                "name": "BillingCustomerCode"
+              },
+              {
+                "name": "BillingCustomerID"
+              },
+              {
+                "name": "BillingCustomerName"
+              }
+            ]
+          },
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimGLAccount",
+            "columns": [
+              {
+                "name": "GLAccountCode"
+              },
+              {
+                "name": "GLAccountID"
+              },
+              {
+                "name": "GLAccountName"
+              },
+              {
+                "name": "GLAccountType"
+              },
+              {
+                "name": "NormalBalance"
+              },
+              {
+                "name": "TotalIntoGLAccountCode"
+              }
+            ]
+          },
+          {
+            "name": "dim DimProperty",
+            "columns": [
+              {
+                "name": "Address"
+              },
+              {
+                "name": "City"
+              },
+              {
+                "name": "Country"
+              },
+              {
+                "name": "Hub"
+              },
+              {
+                "name": "PostCode"
+              },
+              {
+                "name": "PropertyCode"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "PropertyName"
+              },
+              {
+                "name": "Sector"
+              },
+              {
+                "name": "State"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTenant",
+            "columns": [
+              {
+                "name": "BillingCustomerID"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantCode"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "TenantName"
+              },
+              {
+                "name": "TradeName"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTransaction",
+            "columns": [
+              {
+                "name": "CreateDate"
+              },
+              {
+                "name": "Description"
+              },
+              {
+                "name": "PostMonth"
+              },
+              {
+                "name": "TransactionCode"
+              },
+              {
+                "name": "TransactionDate"
+              },
+              {
+                "name": "TransactionID"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "UnitSchedule",
+        "tables": [
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimProperty",
+            "columns": [
+              {
+                "name": "Address"
+              },
+              {
+                "name": "City"
+              },
+              {
+                "name": "Country"
+              },
+              {
+                "name": "Hub"
+              },
+              {
+                "name": "PostCode"
+              },
+              {
+                "name": "PropertyCode"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "PropertyName"
+              },
+              {
+                "name": "Sector"
+              },
+              {
+                "name": "State"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTenant",
+            "columns": [
+              {
+                "name": "BillingCustomerID"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantCode"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "TenantName"
+              },
+              {
+                "name": "TradeName"
+              }
+            ]
+          },
+          {
+            "name": "dim DimUnit",
+            "columns": [
+              {
+                "name": "Floor"
+              },
+              {
+                "name": "IsActive"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "UnitCode"
+              },
+              {
+                "name": "UnitID"
+              },
+              {
+                "name": "UnitType"
+              }
+            ]
+          },
+          {
+            "name": "fact FactUnitSchedule",
+            "columns": [
+              {
+                "name": "ContractArea"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "FromDate"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "ToDate"
+              },
+              {
+                "name": "UnitID"
+              },
+              {
+                "name": "UnitScheduleID"
+              }
+            ],
+            "measures": [
+              {
+                "name": "CurrentContractArea"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sales",
+        "tables": [
+          {
+            "name": "dim DimDate",
+            "columns": [
+              {
+                "name": "CalendarMonth"
+              },
+              {
+                "name": "CalendarMonthName"
+              },
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "DayOfWeek"
+              },
+              {
+                "name": "DayOfWeekName"
+              },
+              {
+                "name": "FinancialQuarter"
+              },
+              {
+                "name": "FinancialYear"
+              }
+            ]
+          },
+          {
+            "name": "dim DimTenant",
+            "columns": [
+              {
+                "name": "BillingCustomerID"
+              },
+              {
+                "name": "CustomerAccountID"
+              },
+              {
+                "name": "PropertyID"
+              },
+              {
+                "name": "TenantCode"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "TenantName"
+              },
+              {
+                "name": "TradeName"
+              }
+            ]
+          },
+          {
+            "name": "fact FactTenantSales",
+            "columns": [
+              {
+                "name": "GrossTurnover"
+              },
+              {
+                "name": "NetTurnover"
+              },
+              {
+                "name": "SalesPeriod"
+              },
+              {
+                "name": "TenantID"
+              },
+              {
+                "name": "TenantSalesID"
+              },
+              {
+                "name": "TenantSalesTypeID"
+              }
+            ],
+            "measures": [
+              {
+                "name": "MATbyPeriod"
+              },
+              {
+                "name": "MATComparablebyPeriod"
+              },
+              {
+                "name": "PercentOccupancyCost"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Read Access",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "nate.wilson@charterhall.com.au",
+            "memberId": "nate.wilson@charterhall.com.au#AzureAD",
+            "identityProvider": "AzureAD"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "500"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
