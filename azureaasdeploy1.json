@@ -4,11 +4,7 @@
     "parameters": {
         "servers_cabassuat_name": {
             "defaultValue": "cabassuat",
-            "type": "String"
-        },		 
-    	"asAdmin": {
-			"defaultValue": "mark@cabaguio.com",
-      		"type": "string" 
+            "type": "String"       
 		}
     },
     "variables": {},
@@ -26,9 +22,7 @@
             "tags": {},
             "scale": null,
             "properties": {
-				"members": [
-            		"[parameters('asAdmin')]"
-					],
+				"asadmin": "mark@cabaguio.com",				
                 "managedMode": 1
             },
             "dependsOn": []
